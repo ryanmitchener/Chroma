@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='chroma.css'/>
+    <style>
+        body {
+            margin: 10px;
+        }
+        .test {
+            position: relative;
+            /*top: 100px;*/
+            /*left: 100px;*/
+            /*-webkit-transform: translate(100px, 100px);*/
+        }
+        #test-box {
+            position: absolute;
+            left: 500px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <span>Click inside the input box to launch Chroma&nbsp;</span>
+    <!-- <div id='test-box'> -->
+        <input class='test' value="hsla(500, 40%, 50%, 1)" />
+    <!-- </div> -->
+    <br />
+    <div id='test1'></div>
+    <div id='test2'></div>
+    <div id='test3'></div>
+    <div id='test4'></div>
+    <script src='chroma.js'></script>
+    <script>
+        var picker = new Chroma({
+            bound: document.querySelector('.test'),
+            id: 'test',
+            // after: document.querySelector('#test2'),
+            // before: document.querySelector('.test')
+            // display: 'hex'
+            // changeBoundValue: false,
+            // setValueOnClose: false,
+            // center: false,
+            changeHue: false,
+            changeWithAlpha: false,
+            position: "center bottom",
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+.chroma * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+}
+.chroma {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    padding: 15px;
+    border-radius: 10px;
+    background: #ddd;
+    border: 1px solid #999;
+    box-shadow: inset 0px 4px 2px -2px hsl(0,0%,92%), 
+        inset 0px 0px 10px 0px rgba(0,0,0,.1), 
+        0px 3px 10px -2px rgba(0,0,0,.2);
+}
+.chroma.bound {
+    position: absolute;
+    transition: -webkit-transform ease-in-out .2s, opacity ease-in-out .2s, visibility ease-in-out .2s;
+    transition: transform ease-in-out .2s, opacity ease-in-out .2s, visibility ease-in-out .2s;
+    -webkit-transform: scale(.2);
+    transform: scale(.2);
+    -webkit-transition-delay: 10ms;
+    transition-delay: 10ms;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 5;
+}
+.chroma.bound.chroma-active {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    visibility: visible;
+}
+.chroma-cont > .alpha-bg {
+    background-image: 
+        -webkit-linear-gradient(45deg, rgba(0,0,0,.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.2) 75%, rgba(0,0,0,.2)),
+        -webkit-linear-gradient(45deg, rgba(0,0,0,.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.2) 75%, rgba(0,0,0,.2));
+    background-image: 
+        linear-gradient(45deg, rgba(0,0,0,.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.2) 75%, rgba(0,0,0,.2)),
+        linear-gradient(45deg, rgba(0,0,0,.2) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.2) 75%, rgba(0,0,0,.2));
+    background-repeat: repeat;
+    background-size: 10px 10px;
+    background-position: 0px 0px, 5px 5px;
+}
+.chroma-cont {
+    float: left;
+    clear: left;
+    width: 250px;
+    position: relative;
+    margin-top: 8px;
+}
+.chroma-cont:first-child {
+    margin-top: 0px;
+    height: 25px;
+}
+.chroma-handle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: -webkit-radial-gradient(circle, transparent 0%, transparent 60%, #000 80%), 
+        -webkit-radial-gradient(100% 100%, 100% 100%, #ccc 0%, #fff 85%, #fff 100%);
+    background: radial-gradient(circle, transparent 0%, transparent 60%, #000 80%), 
+        radial-gradient(circle at 100% 100%, #ccc 0%, #fff 85%, #fff 100%);
+    border-radius: 20px;
+    top: -2px;
+    left: 0px;
+    cursor: pointer;
+}
+.chroma-sat-light ~ .chroma-handle {
+    background: transparent;
+    border: 2px solid #c2c2c2;
+    top: 0;
+}
+.chroma-hue, .chroma-sat-light, .chroma-sat-light-bg, .chroma-alpha {
+    height: 10px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    cursor: default;
+    position: relative;
+    width: 100%;
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    float: left;
+}
+.chroma-hue, .chroma-sat-light, .chroma-sat-light-bg, .chroma-alpha:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.chroma-sat-light, .chroma-sat-light-bg {
+    height: 100px;
+    border-radius: 5px;
+}
+.chroma-sat-light-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.chroma-preview {
+    float: left;
+    width: -webkit-calc(25% - 2px);
+    width: calc(25% - 2px);
+    height: 100%;
+    position: relative;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-right: 2px;
+}
+.chroma-values {
+    float: left;
+    width: -webkit-calc(75% - 2px);
+    width: calc(75% - 2px);
+    -webkit-transform: translateZ(0px);
+    transform: translateZ(0px);
+    background: transparent;
+    border: 0;
+    padding: 2px;
+    text-align: right;
+    font-size: 11px;
+    border-radius: 5px;
+    height: 25px;
+    margin-left: 2px;
+}
+.chroma-values:focus {
+    outline: none;
+    /*background: hsla(200, 0%, 50%, .2);*/
+}
+.chroma-values:invalid {
+    background: hsla(0, 70%, 40%, .2);   
+}
